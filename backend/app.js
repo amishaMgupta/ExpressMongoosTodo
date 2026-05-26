@@ -1,0 +1,14 @@
+const exspress = require('express');
+const connectdb = require('./config/db');
+const app = exspress();
+app.use(exspress.json());
+
+connectdb();
+
+app.use('/api', require('./routes/todo'));
+
+const PORT = 3000
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
+})
