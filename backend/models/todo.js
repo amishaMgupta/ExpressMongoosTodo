@@ -3,7 +3,7 @@ const todoSchema = new mongoos.Schema({
     task: {
         type: String
     },
-    discription: {
+    description: {
         type: String
     }
 })

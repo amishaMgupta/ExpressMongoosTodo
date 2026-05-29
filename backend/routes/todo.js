@@ -11,8 +11,8 @@ router.get('/todo', async (req, res) => {
 });
 router.post('/todo', async (req, res) => {
     try {
-        const { task, discription } = req.body;
-        const newTodo = new Todo({ task, discription });
+        const { task, description } = req.body;
+        const newTodo = new Todo({ task, description });
         await newTodo.save();
         res.status(201).json(newTodo);
     } catch (error) {
@@ -32,8 +32,8 @@ router.delete('/todo/:task', async (req, res) => {
 router.put('/todo/:task', async (req, res) => {
     try {
         const { task } = req.params;
-        const { discription } = req.body;
-        const updatedTodo = await Todo.findOneAndUpdate({ task }, { discription }, { new: true });
+        const { description } = req.body;
+        const updatedTodo = await Todo.findOneAndUpdate({ task }, { description }, { new: true });
         res.json(updatedTodo);
     } catch (error) {
         res.status(500).json({ error: 'Failed to update todo' });
