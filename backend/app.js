@@ -2,6 +2,8 @@ const exspress = require('express');
 const connectdb = require('./config/db');
 const app = exspress();
 app.use(exspress.json());
+const cors = require('cors');
+app.use(cors());
 
 connectdb();
 
