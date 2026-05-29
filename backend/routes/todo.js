@@ -11,8 +11,8 @@ router.get('/todos', async (req, res) => {
 });
 router.post('/todo', async (req, res) => {
     try {
-        const { task, description } = req.body;
-        const newTodo = new Todo({ task, description });
+        console.log(req.body);
+        const newTodo = new Todo(req.body);
         await newTodo.save();
         res.status(201).json(newTodo);
     } catch (error) {

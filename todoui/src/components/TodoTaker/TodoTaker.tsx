@@ -1,5 +1,4 @@
 import {
-  Box,
   TextField,
   Typography,
   Button,
@@ -9,10 +8,13 @@ import {
 
 import * as Yup from "yup";
 import { Formik } from "formik";
-
+import todoService from "../../service/TodoService"
 import type { Todo } from "../../model/Todo";
+type TodoTakerProps = {
+    addTodo: (todo: Todo) => void;
+} 
 
-function TodoTaker() {
+function TodoTaker({ addTodo }: TodoTakerProps) {
   const validationSchema = Yup.object({
     title: Yup.string()
       .required("Title is required"),
@@ -32,11 +34,13 @@ function TodoTaker() {
   };
 
   const handleCreateTodo = (values: Todo) => {
-    console.log(values);
+    addTodo(values);
+    todoService.postTodo(values);
+    
   };
 
   return (
-    <Box mt={5}>
+    <>
       <Typography
         variant="h4"
         align="center"
@@ -121,7 +125,7 @@ function TodoTaker() {
           </form>
         )}
       </Formik>
-    </Box>
+    </>
   );
 }
 
