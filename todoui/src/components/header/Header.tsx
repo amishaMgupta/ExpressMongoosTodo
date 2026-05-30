@@ -28,6 +28,12 @@ function Header(){
           <Button color="inherit" onClick={()=> navigte('/')}>Home</Button>
           <Button color="inherit" onClick={()=> navigte('/dashboard')}>Dashboard</Button>
           <Button color="inherit" onClick={()=> navigte('/login')}>Login</Button>
+          <Button color="inherit" onClick={()=> {
+            localStorage.removeItem("username");
+            localStorage.removeItem("role");
+            localStorage.removeItem("token");
+            navigte('/login');
+          }}>Logout</Button>
         </Toolbar>
       </AppBar>
     </div>

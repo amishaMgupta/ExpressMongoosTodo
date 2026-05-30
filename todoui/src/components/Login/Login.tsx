@@ -28,9 +28,7 @@ function Login(){
      const handleLogin = async (values: User) => {
         console.log(values);
         await UserService.login(values).then((data) => {
-          console.log("Login successful", data);
-          localStorage.setItem("username", data.name);
-          localStorage.setItem("role",data.role?data.role:"user");
+          localStorage.setItem("token", data);
           if(data.role === "user"){
             navigate("/dashboard");
           }

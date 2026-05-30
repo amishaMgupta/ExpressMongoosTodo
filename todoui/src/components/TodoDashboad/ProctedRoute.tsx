@@ -1,13 +1,14 @@
-import {useNavigate} from "react-router-dom";
-import { useEffect } from "react";
-function ProtectedRoute({ children }:any) {
-   useEffect(() => { 
-      const navigate = useNavigate();
-      const data = localStorage.getItem("username");
-      if(data!="user"){
-         navigate("/login");
-      }
-   },[])
-    return children;
+import { Navigate } from "react-router-dom";
+
+function ProtectedRoute({ children }: any) {
+  const data = localStorage.getItem("token");
+  console.log("from ProtectedRoute:", data);
+
+  if (!data) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return <>{children}</>;
 }
+
 export default ProtectedRoute;
