@@ -27,7 +27,7 @@ function Header(){
           </Typography>
           <Button color="inherit" onClick={()=> navigte('/')}>Home</Button>
           <Button color="inherit" onClick={()=> navigte('/dashboard')}>Dashboard</Button>
-          <Button color="inherit" onClick={()=> navigte('/Login')}>Login</Button>
+          <Button color="inherit" onClick={()=> navigte('/login')}>Login</Button>
         </Toolbar>
       </AppBar>
     </div>

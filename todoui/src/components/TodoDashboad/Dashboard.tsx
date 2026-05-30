@@ -15,9 +15,6 @@ function TodoDashboard(){
     }, [])
     const addTodo = (newTodo: Todo):void => {
         setTodos((prevTodos) => [...prevTodos, newTodo]);
-        console.log("from dashboard - New todo added:", newTodo);
-        console.log("-------------",todos);
-        
     }
     return(
         <div>

@@ -8,6 +8,7 @@ app.use(cors());
 connectdb();
 
 app.use('/api', require('./routes/todo'));
+app.use('/api/user', require('./routes/user'));
 
 const PORT = 3000
 
